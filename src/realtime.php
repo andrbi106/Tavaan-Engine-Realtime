@@ -64,12 +64,28 @@ final class RealtimeServiceProvider
     public function provides(): array { return [RealtimeManager::class]; }
     public function getManager(): RealtimeManager { if ($this->manager === null) $this->register(); return $this->manager; }
 
-    public function presence()
+    public function presence(string $channel): array
     {
-        return null;
+        $mgr = $this->getManager();
+        if (!in_array($channel, $mgr->getChannels(), true)) {
+            return [];
+        }
+        $ch = $mgr->channel($channel);
+        return [
+            'channel' => $channel,
+            'subscribers' => $ch->count(),
+        ];
     }
-    public function publish()
+
+    public function publish(string $channel, string $event, mixed $data): int
     {
-        return null;
+        $mgr = $this->getManager();
+        if (!in_array($channel, $mgr->getChannels(), true)) {
+            return 0;
+        }
+        $ch = $mgr->channel($channel);
+        $before = $ch->count();
+        $ch->broadcast($event, $data);
+        return $before; // # subscribers that received the event
     }
 }
