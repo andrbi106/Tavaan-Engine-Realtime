@@ -9,7 +9,7 @@ use Tavaan\Core\Contracts\Console\CommandInterface;
 /**
  * realtime:websocket command.
  */
-final class Realtime_websocketCommand implements CommandInterface
+final class RealtimeWebsocketCommand implements CommandInterface
 {
     public function name(): string
     {
