@@ -15,7 +15,7 @@ use Tavaan\Engine\Realtime\Broadcast;
  */
 final class RealtimeScenarioTest extends TestCase
 {
-    public function t01_subscribe_broadcast(): void
+    public function test_t01_subscribe_broadcast(): void
     {
         // Scenario T-01
 $mgr = new RealtimeManager();
@@ -27,7 +27,7 @@ $mgr = new RealtimeManager();
         $this->assertCount(1, $received);
         $this->assertSame("ping", $received[0]["event"]);
     }
-    public function t02_unsubscribe_removes_callback(): void
+    public function test_t02_unsubscribe_removes_callback(): void
     {
         // Scenario T-02
 $mgr = new RealtimeManager();
@@ -39,7 +39,7 @@ $mgr = new RealtimeManager();
         $mgr->broadcast("c", "e", null);
         $this->assertSame(1, $hits);
     }
-    public function t03_broadcast_facade_returns_manager(): void
+    public function test_t03_broadcast_facade_returns_manager(): void
     {
         // Scenario T-03
 $b = new Broadcast();
