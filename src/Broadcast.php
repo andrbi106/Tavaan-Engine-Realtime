@@ -6,11 +6,11 @@ namespace Tavaan\Engine\Realtime;
 
 final class Broadcast
 {
-    public function channel(/* ... */): mixed
+    public function channel()
     {
         return null;
     }
-    public function connection(/* ... */): mixed
+    public function connection()
     {
         return null;
     }

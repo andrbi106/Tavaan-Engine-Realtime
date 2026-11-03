@@ -64,11 +64,11 @@ final class RealtimeServiceProvider
     public function provides(): array { return [RealtimeManager::class]; }
     public function getManager(): RealtimeManager { if ($this->manager === null) $this->register(); return $this->manager; }
 
-    public function presence(/* ... */): mixed
+    public function presence()
     {
         return null;
     }
-    public function publish(/* ... */): mixed
+    public function publish()
     {
         return null;
     }
