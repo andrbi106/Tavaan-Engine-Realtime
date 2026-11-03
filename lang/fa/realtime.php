@@ -1,2 +1,2 @@
 <?php
-return return ['error_channel' => 'کانال یافت نشد.'];;
+return ['error_channel' => 'کانال یافت نشد.'];
