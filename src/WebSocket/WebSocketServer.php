@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Tavaan\Engine\Realtime\WebSocket;
 
-use Tavaan\Core\Contracts\Realtime\BrokerInterface;
+use Tavaan\Engine\Realtime\Contracts\BrokerInterface;
 use Tavaan\Engine\Realtime\Exceptions\RealtimeException;
 use Tavaan\Engine\Realtime\RealtimeManager;
 

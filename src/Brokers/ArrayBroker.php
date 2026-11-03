@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Tavaan\Engine\Realtime\Brokers;
 
-use Tavaan\Core\Contracts\Realtime\BrokerInterface;
+use Tavaan\Engine\Realtime\Contracts\BrokerInterface;
 use Tavaan\Support\Time\Clock;
 
 /**

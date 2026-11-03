@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Tavaan\Engine\Realtime;
 
-use Tavaan\Core\Contracts\Realtime\BrokerInterface;
+use Tavaan\Engine\Realtime\Contracts\BrokerInterface;
 
 /**
  * تَوان | Tavaan — Realtime
