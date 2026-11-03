@@ -14,4 +14,36 @@ use Tavaan\Engine\Realtime\Broadcast;
  * Generated from ROADMAP.md scenarios — real implementations, not placeholders.
  */
 final class RealtimeScenarioTest extends TestCase
-{'    public function t01_subscribe_broadcast(): void\n    {\n        // Scenario T-01\n$mgr = new RealtimeManager();\n        $received = [];\n        $mgr->subscribe("chan1", "conn1", function ($event, $data) use (&$received) {\n            $received[] = ["event" => $event, "data" => $data];\n        });\n        $mgr->broadcast("chan1", "ping", ["v" => 1]);\n        $this->assertCount(1, $received);\n        $this->assertSame("ping", $received[0]["event"]);\n    }\n    public function t02_unsubscribe_removes_callback(): void\n    {\n        // Scenario T-02\n$mgr = new RealtimeManager();\n        $hits = 0;\n        $cb = function () use (&$hits) { $hits++; };\n        $mgr->subscribe("c", "x", $cb);\n        $mgr->broadcast("c", "e", null);\n        $mgr->unsubscribe("c", "x");\n        $mgr->broadcast("c", "e", null);\n        $this->assertSame(1, $hits);\n    }\n    public function t03_broadcast_facade_returns_manager(): void\n    {\n        // Scenario T-03\n$b = new Broadcast();\n        $mgr = $b->connection();\n        $this->assertInstanceOf(RealtimeManager::class, $mgr);\n    }'}
+{
+    public function t01_subscribe_broadcast(): void
+    {
+        // Scenario T-01
+$mgr = new RealtimeManager();
+        $received = [];
+        $mgr->subscribe("chan1", "conn1", function ($event, $data) use (&$received) {
+            $received[] = ["event" => $event, "data" => $data];
+        });
+        $mgr->broadcast("chan1", "ping", ["v" => 1]);
+        $this->assertCount(1, $received);
+        $this->assertSame("ping", $received[0]["event"]);
+    }
+    public function t02_unsubscribe_removes_callback(): void
+    {
+        // Scenario T-02
+$mgr = new RealtimeManager();
+        $hits = 0;
+        $cb = function () use (&$hits) { $hits++; };
+        $mgr->subscribe("c", "x", $cb);
+        $mgr->broadcast("c", "e", null);
+        $mgr->unsubscribe("c", "x");
+        $mgr->broadcast("c", "e", null);
+        $this->assertSame(1, $hits);
+    }
+    public function t03_broadcast_facade_returns_manager(): void
+    {
+        // Scenario T-03
+$b = new Broadcast();
+        $mgr = $b->connection();
+        $this->assertInstanceOf(RealtimeManager::class, $mgr);
+    }
+}
