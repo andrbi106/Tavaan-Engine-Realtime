@@ -47,5 +47,6 @@
     }
   ],
   "docs": "docs/03-engines/realtime.md",
-  "notes": "M6 — SSE بدون هیچ ext (StreamedResponse + heartbeat + retry)، WebSocket خودنوشته RFC 6455 (handshake/accept-key، frame codec با mask اجباری client، fragmentation، ping/pong، Origin check)، brokerها: Array/Database(polling با TTL prune)/Redis(bازاستفاده از RedisClient صف با seq سراسری و fallback خودکار)، ChannelRegistry با {param}/wildcard، احراز کانال خصوصی (POST /broadcasting/auth + توکن HMAC)، Presence با cache TTL، قلاب ShouldBroadcast در EventDispatcher، routes/channels.php."
+  "notes": "M6 — SSE بدون هیچ ext (StreamedResponse + heartbeat + retry)، WebSocket خودنوشته RFC 6455 (handshake/accept-key، frame codec با mask اجباری client، fragmentation، ping/pong، Origin check)، brokerها: Array/Database(polling با TTL prune)/Redis(bازاستفاده از RedisClient صف با seq سراسری و fallback خودکار)، ChannelRegistry با {param}/wildcard، احراز کانال خصوصی (POST /broadcasting/auth + توکن HMAC)، Presence با cache TTL، قلاب ShouldBroadcast در EventDispatcher، routes/channels.php.",
+  "class": "Tavaan\\Engine\\Realtime\\RealtimeEngine"
 }
